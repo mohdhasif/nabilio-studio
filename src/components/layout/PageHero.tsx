@@ -1,5 +1,5 @@
 import { GeometricMark } from "@/components/brand/GeometricMark";
-import { Reveal } from "@/components/motion/Reveal";
+import { FadeIn } from "@/components/motion/FadeIn";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
@@ -21,16 +21,16 @@ export function PageHero({ eyebrow, title, description, children }: PageHeroProp
       />
       <Container className="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
         <div className="max-w-3xl">
-          <Reveal>
+          <FadeIn>
             <Eyebrow onDark>{eyebrow}</Eyebrow>
-          </Reveal>
-          <Reveal delay={0.08}>
+          </FadeIn>
+          <FadeIn delay={0.08}>
             <h1 className="mt-6 text-h1 font-bold">{title}</h1>
-          </Reveal>
-          <Reveal delay={0.16}>
+          </FadeIn>
+          <FadeIn delay={0.16}>
             <p className="mt-6 max-w-2xl text-lead text-on-navy-muted">{description}</p>
-          </Reveal>
-          {children && <Reveal delay={0.24}>{children}</Reveal>}
+          </FadeIn>
+          {children && <FadeIn delay={0.24}>{children}</FadeIn>}
         </div>
       </Container>
     </section>

@@ -10,7 +10,6 @@
   --color-gold: #c6a76a;
   --color-soft-white: #f7f8fa;
   --color-ink: #172334;
-  --color-muted: #64748b;
 
   /* Supporting neutrals derived from the navy */
   --color-navy-deep: #0e1a2b;
@@ -47,6 +46,23 @@
 
   /* Motion */
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-fade-up: fade-up 0.7s var(--ease-out-soft) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* Muted text resolves per surface (see --muted-text below); the brand value is #64748B. */
+@theme inline {
+  --color-muted: var(--muted-text);
 }
 
 @layer base {
@@ -73,6 +89,19 @@
 
   p {
     text-wrap: pretty;
+  }
+
+  /*
+   * Brand Muted Text (#64748B) is 4.48:1 on Soft White — just under WCAG AA (4.5:1).
+   * On Soft White surfaces only, use a near-identical shade (4.68:1). White surfaces keep the exact brand value.
+   */
+  :root,
+  .bg-white {
+    --muted-text: #64748b;
+  }
+  body,
+  .bg-soft-white {
+    --muted-text: #617187;
   }
 
   ::selection {

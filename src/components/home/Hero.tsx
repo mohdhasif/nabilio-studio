@@ -1,6 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import { GeometricMark } from "@/components/brand/GeometricMark";
-import { Reveal } from "@/components/motion/Reveal";
+import { FadeIn } from "@/components/motion/FadeIn";
 import { SiteMockup } from "@/components/portfolio/SiteMockup";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -29,21 +29,23 @@ export function Hero() {
 
       <Container className="grid items-center gap-16 pt-16 pb-20 sm:pt-20 sm:pb-24 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pt-24 lg:pb-32">
         <div>
-          <Reveal>
-            <Eyebrow onDark>Web Design &amp; Development · Malaysia</Eyebrow>
-          </Reveal>
-          <Reveal delay={0.08}>
+          <FadeIn>
+            <Eyebrow onDark>
+              Web Design &amp; Development<span className="hidden sm:inline"> · Malaysia</span>
+            </Eyebrow>
+          </FadeIn>
+          <FadeIn delay={0.08}>
             <h1 className="mt-6 text-display font-bold">
               Professional Websites. <span className="text-gold">Lasting Impressions.</span>
             </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
+          </FadeIn>
+          <FadeIn delay={0.16}>
             <p className="mt-6 max-w-xl text-lead text-on-navy-muted">
               We design and develop modern, responsive websites that help Malaysian businesses build credibility,
               showcase their services, and connect with more customers.
             </p>
-          </Reveal>
-          <Reveal delay={0.24} className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+          </FadeIn>
+          <FadeIn delay={0.24} className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <ButtonLink href="/services" size="lg">
               Explore Our Services
               <ArrowRight
@@ -54,8 +56,8 @@ export function Hero() {
             <ButtonLink href="/portfolio" size="lg" variant="outlineLight">
               View Our Work
             </ButtonLink>
-          </Reveal>
-          <Reveal delay={0.32}>
+          </FadeIn>
+          <FadeIn delay={0.32}>
             <ul className="mt-12 flex flex-col gap-3 text-sm text-on-navy-muted sm:flex-row sm:flex-wrap sm:gap-x-8">
               {assurances.map((a) => (
                 <li key={a} className="flex items-center gap-2.5">
@@ -64,10 +66,10 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-          </Reveal>
+          </FadeIn>
         </div>
 
-        <Reveal delay={0.2} className="relative mx-auto w-full max-w-lg lg:max-w-none">
+        <FadeIn delay={0.2} className="relative mx-auto w-full max-w-lg lg:max-w-none">
           <div aria-hidden className="absolute -inset-6 -z-10 rounded-3xl border border-gold/15" />
           <SiteMockup address="yourbusiness.com.my" />
           {/* Phone frame overlapping the browser */}
@@ -86,7 +88,7 @@ export function Hero() {
               <span className="block aspect-square w-full rounded-lg border border-navy-line bg-navy-deep/60" />
             </div>
           </div>
-        </Reveal>
+        </FadeIn>
       </Container>
     </section>
   );
