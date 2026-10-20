@@ -1,8 +1,7 @@
 export const processSteps = [
   {
     title: "Discovery",
-    description:
-      "We discuss your business, customers and goals, and agree on what the website needs to achieve.",
+    description: "We discuss your business, customers and goals, and agree on what the website needs to achieve.",
   },
   {
     title: "Planning",

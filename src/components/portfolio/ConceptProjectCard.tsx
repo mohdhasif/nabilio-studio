@@ -31,7 +31,9 @@ export function ConceptProjectCard({ project, onDark = false, detailed = false, 
       </div>
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <ConceptBadge onDark={onDark} className="self-start" />
-        <p className={cn("mt-5 text-xs font-semibold tracking-[0.14em] uppercase", onDark ? "text-gold" : "text-muted")}>
+        <p
+          className={cn("mt-5 text-xs font-semibold tracking-[0.14em] uppercase", onDark ? "text-gold" : "text-muted")}
+        >
           {project.category}
         </p>
         <Heading className={cn("mt-2 text-h3 font-bold", onDark ? "text-soft-white" : "text-navy")}>

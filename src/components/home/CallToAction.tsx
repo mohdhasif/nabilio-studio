@@ -29,7 +29,10 @@ export function CallToAction({
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
             <ButtonLink href="/contact" size="lg">
               Start a Project
-              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden />
+              <ArrowRight
+                className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                aria-hidden
+              />
             </ButtonLink>
             {wa && (
               <ButtonLink href={wa} size="lg" variant="outlineLight">

@@ -40,8 +40,7 @@ export const siteConfig = {
     /** True when the value is not yet configured — UI must show a clear placeholder. */
     emailIsPlaceholder: email === "",
     whatsappIsPlaceholder: whatsapp === "",
-    whatsappMessage:
-      "Hello Nabilio Studio, I would like to enquire about a website for my business.",
+    whatsappMessage: "Hello Nabilio Studio, I would like to enquire about a website for my business.",
   },
 
   /**

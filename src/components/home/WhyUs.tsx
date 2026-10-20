@@ -42,14 +42,19 @@ export function WhyUs() {
       <Reveal>
         <SectionHeading
           eyebrow="Why Nabilio Studio"
-            id="why-heading"
-            title="Professional work, without the agency overhead."
+          id="why-heading"
+          title="Professional work, without the agency overhead."
           description="A focused, personal approach that puts quality, clarity and long-term value first."
         />
       </Reveal>
       <ul className="mt-14 grid gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
         {reasons.map((r, i) => (
-          <Reveal as="li" key={r.title} delay={(i % 3) * 0.06} className="bg-white p-8 transition-colors duration-300 hover:bg-soft-white">
+          <Reveal
+            as="li"
+            key={r.title}
+            delay={(i % 3) * 0.06}
+            className="bg-white p-8 transition-colors duration-300 hover:bg-soft-white"
+          >
             <r.icon className="size-6 text-gold" strokeWidth={1.75} aria-hidden />
             <h3 className="mt-5 font-display text-lg font-semibold text-navy">{r.title}</h3>
             <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted">{r.text}</p>

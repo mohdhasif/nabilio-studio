@@ -10,8 +10,8 @@ export function Process() {
         <SectionHeading
           align="center"
           eyebrow="How we work"
-            id="process-heading"
-            title="A clear process from first conversation to launch."
+          id="process-heading"
+          title="A clear process from first conversation to launch."
           description="Every project follows the same structured steps, so you always know what is happening and what comes next."
         />
       </Reveal>

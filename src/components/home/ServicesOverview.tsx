@@ -41,7 +41,10 @@ export function ServicesOverview() {
               >
                 Learn more
                 <span className="sr-only"> about {s.title}</span>
-                <ArrowRight className="size-4 text-gold transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
+                <ArrowRight
+                  className="size-4 text-gold transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden
+                />
               </Link>
             </Card>
           </Reveal>

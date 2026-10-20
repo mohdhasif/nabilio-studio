@@ -22,7 +22,10 @@ export function Hero() {
         }}
       />
       <GeometricMark className="absolute -top-24 -right-40 -z-10 size-160 text-gold/15 lg:-right-24" />
-      <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-px bg-linear-to-r from-transparent via-gold/40 to-transparent" />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 -z-10 h-px bg-linear-to-r from-transparent via-gold/40 to-transparent"
+      />
 
       <Container className="grid items-center gap-16 pt-16 pb-20 sm:pt-20 sm:pb-24 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pt-24 lg:pb-32">
         <div>
@@ -31,8 +34,7 @@ export function Hero() {
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="mt-6 text-display font-bold">
-              Professional Websites.{" "}
-              <span className="text-gold">Lasting Impressions.</span>
+              Professional Websites. <span className="text-gold">Lasting Impressions.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
@@ -44,7 +46,10 @@ export function Hero() {
           <Reveal delay={0.24} className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <ButtonLink href="/services" size="lg">
               Explore Our Services
-              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden />
+              <ArrowRight
+                className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                aria-hidden
+              />
             </ButtonLink>
             <ButtonLink href="/portfolio" size="lg" variant="outlineLight">
               View Our Work

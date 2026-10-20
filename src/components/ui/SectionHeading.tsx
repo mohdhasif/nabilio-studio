@@ -33,11 +33,7 @@ export function SectionHeading({
       )}
       <Heading
         id={id}
-        className={cn(
-          "font-bold",
-          Heading === "h1" ? "text-h1" : "text-h2",
-          onDark ? "text-soft-white" : "text-navy",
-        )}
+        className={cn("font-bold", Heading === "h1" ? "text-h1" : "text-h2", onDark ? "text-soft-white" : "text-navy")}
       >
         {title}
       </Heading>
