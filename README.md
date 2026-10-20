@@ -33,13 +33,12 @@ npm run dev                  # http://localhost:3000
 Set these in `.env.local` locally or in Vercel → Project → Settings → Environment Variables:
 
 - `NEXT_PUBLIC_SITE_URL`: the public URL used for canonical, Open Graph and sitemap. On Vercel it falls back to the production `*.vercel.app` domain.
-- `NEXT_PUBLIC_CONTACT_EMAIL`: the enquiry email. If it is empty, the site shows a clearly marked placeholder.
-- `NEXT_PUBLIC_WHATSAPP_NUMBER`: digits only, international format (e.g. `60123456789`).
+- `NEXT_PUBLIC_CONTACT_EMAIL`: the enquiry email. It defaults to the owner email set in `src/config/site.ts`.
+- `NEXT_PUBLIC_WHATSAPP_NUMBER`: digits only, international format (default `601110709875`).
 
 ## Brand assets
 
-Put the approved logo files in `public/brand/`, then set their paths in `src/config/site.ts` → `brand`.
-`public/brand/README.md` lists the files. Until then, the site shows a text wordmark.
+The official logo kit is in `public/brand/`. Paths are set in `src/config/site.ts` → `brand`.
 
 ## Structure
 

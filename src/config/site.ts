@@ -15,9 +15,13 @@ function resolveSiteUrl(): string {
   return FALLBACK_URL;
 }
 
-const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "";
+/** Defaults supplied by the owner; environment variables override them. */
+const DEFAULT_EMAIL = "mohdhasif24181@gmail.com";
+const DEFAULT_WHATSAPP = "601110709875"; // 011-1070 9875
+
+const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || DEFAULT_EMAIL;
 /** International format, digits only, e.g. 60123456789 */
-const whatsapp = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, "");
+const whatsapp = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || DEFAULT_WHATSAPP).replace(/\D/g, "");
 
 export const siteConfig = {
   name: "Nabilio Studio",
@@ -41,13 +45,16 @@ export const siteConfig = {
   },
 
   /**
-   * Official logo files (Concept C — geometric N). Place them in /public/brand
-   * and set the paths here. While `null`, a text wordmark is used instead.
+   * Official logo files (Concept C — geometric N) in /public/brand.
+   * The "-trimmed" variants are the originals with transparent margins cropped.
+   * Set a path to `null` to fall back to the text wordmark.
    */
   brand: {
-    logoHorizontal: null as string | null, // e.g. "/brand/nabilio-logo-horizontal.png" (for light backgrounds)
-    logoHorizontalDark: null as string | null, // e.g. "/brand/nabilio-logo-horizontal-dark.png" (for navy backgrounds)
-    icon: null as string | null, // e.g. "/brand/nabilio-icon-transparent.png"
+    logoHorizontal: "/brand/nabilio-logo-horizontal-trimmed.png" as string | null, // light backgrounds
+    logoHorizontalDark: "/brand/nabilio-logo-horizontal-dark-trimmed.png" as string | null, // navy backgrounds
+    logoSize: { width: 639, height: 158 },
+    icon: "/brand/nabilio-icon-transparent.png" as string | null,
+    mainLogo: "/brand/nabilio-logo-main.png" as string | null,
   },
 } as const;
 

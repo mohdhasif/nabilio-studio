@@ -41,6 +41,7 @@ export default function DesignSystemPreview() {
       </Section>
 
       <Section>
+        <Logo className="mb-14" />
         <SectionHeading eyebrow="Colour" title="Brand palette" />
         <ul className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
           {swatches.map((s) => (
