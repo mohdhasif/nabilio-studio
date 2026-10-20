@@ -60,6 +60,26 @@
   }
 }
 
+/*
+ * Torquevale Motorworks — fictional automotive demo (/demos/torquevale).
+ * Kept separate from the Nabilio brand tokens above.
+ */
+@theme {
+  --color-tv-black: #0b0c0e;
+  --color-tv-panel: #14161a;
+  --color-tv-raised: #1c1f24;
+  --color-tv-line: #2a2e35;
+  --color-tv-text: #eef0f2;
+  --color-tv-muted: #a3a9b2;
+  --color-tv-accent: #ff5a1f;
+  --color-tv-accent-hover: #ff7440;
+}
+
+/* Inline so the font resolves inside the demo layout, where --font-barlow-condensed is defined. */
+@theme inline {
+  --font-tv-display: var(--font-barlow-condensed), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
 /* Muted text resolves per surface (see --muted-text below); the brand value is #64748B. */
 @theme inline {
   --color-muted: var(--muted-text);
@@ -114,6 +134,18 @@
     outline: 2px solid var(--color-gold);
     outline-offset: 3px;
     border-radius: 4px;
+  }
+
+  /* Torquevale demo surface */
+  .tv-theme :is(h1, h2, h3, h4) {
+    font-family: var(--font-barlow-condensed), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+  .tv-theme :focus-visible {
+    outline-color: var(--color-tv-accent);
+  }
+  .tv-theme ::selection {
+    background-color: var(--color-tv-accent);
+    color: var(--color-tv-black);
   }
 
   @media (prefers-reduced-motion: reduce) {
