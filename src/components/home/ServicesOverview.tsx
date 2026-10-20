@@ -26,7 +26,7 @@ export function ServicesOverview() {
         </Reveal>
       </div>
 
-      <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
         {services.map((s, i) => (
           <Reveal as="li" key={s.slug} delay={i * 0.06}>
             <Card interactive className="group relative flex h-full flex-col">

@@ -7,18 +7,21 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { PRICING_NOTE, services } from "@/content/services";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo";
+import { businessSchema } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
   title: "Website Development Services",
   description:
-    "Business landing pages, company profile websites, website redesign and maintenance for Malaysian SMEs. Professional website development tailored to your business.",
+    "Website development in Malaysia for SMEs: business landing pages from RM499, company profile websites, website redesign and maintenance, with clear starting prices.",
   path: "/services",
 });
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={businessSchema()} />
       <PageHero
         eyebrow="Services"
         title="Website development services for growing businesses."
