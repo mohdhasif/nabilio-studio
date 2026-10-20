@@ -11,7 +11,18 @@ export type Service = {
   idealFor: string;
   features: string[];
   benefits: string[];
+  /** Starting package. Final price depends on scope and is confirmed in a quotation. */
+  pricing: {
+    from: string;
+    /** e.g. "/ month" for recurring services */
+    unit?: string;
+    includes: string[];
+  };
 };
+
+/** Shown wherever starting prices appear. */
+export const PRICING_NOTE =
+  "Prices shown are starting prices for a basic scope. Domain and hosting fees are separate. Your final price is confirmed in a written quotation before work begins.";
 
 export const services: Service[] = [
   {
@@ -36,6 +47,10 @@ export const services: Service[] = [
       "Make it easy for customers to contact you",
       "A solid starting point you can expand later",
     ],
+    pricing: {
+      from: "RM499",
+      includes: ["1 page, up to 6 sections", "2 rounds of revisions", "Approx. 1–2 weeks delivery"],
+    },
   },
   {
     slug: "company-profile",
@@ -47,7 +62,7 @@ export const services: Service[] = [
     idealFor:
       "Established SMEs, service providers and contractors who need a fuller online profile for customers, partners or tender submissions.",
     features: [
-      "Up to several pages (Home, About, Services, Gallery, Contact)",
+      "Multi-page layout (e.g. Home, About, Services, Gallery, Contact)",
       "Consistent design aligned with your brand",
       "Service and gallery sections",
       "Enquiry form and WhatsApp integration",
@@ -59,6 +74,10 @@ export const services: Service[] = [
       "Answer common customer questions up front",
       "Support sales conversations and proposals",
     ],
+    pricing: {
+      from: "RM1,199",
+      includes: ["Up to 5 pages", "2 rounds of revisions", "Approx. 2–3 weeks delivery"],
+    },
   },
   {
     slug: "website-redesign",
@@ -82,6 +101,10 @@ export const services: Service[] = [
       "Better experience for mobile visitors",
       "A cleaner base that is easier to maintain",
     ],
+    pricing: {
+      from: "RM799",
+      includes: ["Up to 5 pages redesigned", "2 rounds of revisions", "Approx. 2–3 weeks delivery"],
+    },
   },
   {
     slug: "maintenance-support",
@@ -105,5 +128,10 @@ export const services: Service[] = [
       "Resolve issues without technical hassle",
       "Peace of mind after launch",
     ],
+    pricing: {
+      from: "RM79",
+      unit: "/ month",
+      includes: ["Minor content updates each month", "Monthly website check", "WhatsApp and email support"],
+    },
   },
 ];

@@ -5,10 +5,4 @@ export const serviceOptions = [
   { value: "not-sure", label: "Not sure yet — I'd like advice" },
 ];
 
-export const budgetOptions = [
-  "Below RM1,500",
-  "RM1,500 – RM3,000",
-  "RM3,000 – RM5,000",
-  "Above RM5,000",
-  "Not sure yet",
-];
+export const budgetOptions = ["Below RM500", "RM500 – RM1,000", "RM1,000 – RM2,000", "Above RM2,000", "Not sure yet"];

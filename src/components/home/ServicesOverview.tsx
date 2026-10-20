@@ -16,7 +16,7 @@ export function ServicesOverview() {
             eyebrow="Services"
             id="services-heading"
             title="Websites built around your business needs."
-            description="From a focused landing page to ongoing support, each service is scoped to what your business actually needs."
+            description="From a focused landing page to ongoing support, with clear starting prices for businesses just getting started online."
           />
         </Reveal>
         <Reveal delay={0.1} className="shrink-0">
@@ -35,6 +35,10 @@ export function ServicesOverview() {
               </span>
               <h3 className="mt-6 font-display text-lg font-semibold text-navy">{s.title}</h3>
               <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-muted">{s.summary}</p>
+              <p className="mt-5 border-t border-line pt-4 font-display text-sm text-muted">
+                From <span className="text-base font-bold text-navy">{s.pricing.from}</span>
+                {s.pricing.unit && ` ${s.pricing.unit}`}
+              </p>
               <Link
                 href={`/services#${s.slug}`}
                 className="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-navy after:absolute after:inset-0 after:rounded-card"

@@ -6,7 +6,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { services } from "@/content/services";
+import { PRICING_NOTE, services } from "@/content/services";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Website development services for growing businesses."
-        description="Four focused services covering everything from your first business website to ongoing support. Every project is scoped to your needs, with a clear quotation before work begins."
+        description="Four focused services covering everything from your first business website to ongoing support. Clear starting prices, with every project scoped to your needs and confirmed in a quotation before work begins."
       >
         <nav aria-label="Services on this page" className="mt-10">
           <ul className="flex flex-wrap gap-2.5">
@@ -71,8 +71,29 @@ export default function ServicesPage() {
                     <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink">{s.idealFor}</p>
                   </div>
 
+                  <div className="mt-5 rounded-xl border border-gold/50 p-5 sm:p-6">
+                    <p className="font-display text-xs font-semibold tracking-[0.18em] text-muted uppercase">
+                      Starting from
+                    </p>
+                    <p className="mt-1 font-display text-navy">
+                      <span className="text-3xl font-bold tracking-tight">{s.pricing.from}</span>
+                      {s.pricing.unit && <span className="ml-1 text-sm font-medium text-muted">{s.pricing.unit}</span>}
+                    </p>
+                    <ul
+                      className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink"
+                      aria-label="Starting package includes"
+                    >
+                      {s.pricing.includes.map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <Check className="size-3.5 shrink-0 text-gold" aria-hidden />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                   <ButtonLink href={`/contact?service=${s.slug}`} variant="navy" size="lg" className="mt-9">
-                    Enquire about {s.title}
+                    Enquire now<span className="sr-only"> about {s.title}</span>
                     <ArrowRight
                       className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
                       aria-hidden
@@ -114,10 +135,7 @@ export default function ServicesPage() {
 
           <Reveal className="rounded-card border border-dashed border-navy/20 p-7 text-center sm:p-10">
             <h2 className="font-display text-xl font-semibold text-navy">About pricing</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-muted">
-              Every business is different, so pricing depends on the scope of your project. Share your requirements and
-              you will receive a clear quotation, with no obligation, before any work begins.
-            </p>
+            <p className="mx-auto mt-3 max-w-2xl text-muted">{PRICING_NOTE}</p>
             <Link
               href="/contact"
               className="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold"
