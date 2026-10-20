@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 type LogoProps = {
   /** Set when the logo sits on a navy background. */
   onDark?: boolean;
+  /** Preload the image — set only for the above-the-fold header logo. */
+  priority?: boolean;
   className?: string;
 };
 
@@ -13,7 +15,7 @@ type LogoProps = {
  * Brand logo linking home. Uses the official horizontal logo when configured in
  * `siteConfig.brand`; otherwise falls back to a temporary text wordmark.
  */
-export function Logo({ onDark = false, className }: LogoProps) {
+export function Logo({ onDark = false, priority = false, className }: LogoProps) {
   const src = onDark ? siteConfig.brand.logoHorizontalDark : siteConfig.brand.logoHorizontal;
 
   return (
@@ -24,7 +26,8 @@ export function Logo({ onDark = false, className }: LogoProps) {
           alt={siteConfig.name}
           width={siteConfig.brand.logoSize.width}
           height={siteConfig.brand.logoSize.height}
-          priority
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
           className="h-9 w-auto sm:h-10"
         />
       ) : (

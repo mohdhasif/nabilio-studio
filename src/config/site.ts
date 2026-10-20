@@ -75,3 +75,11 @@ export function emailLink(subject = "Website enquiry"): string | null {
   if (siteConfig.contact.emailIsPlaceholder) return null;
   return `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(subject)}`;
 }
+
+/** Human-readable WhatsApp number, e.g. "+60 11-1070 9875". */
+export function whatsappDisplay(): string {
+  const digits = siteConfig.contact.whatsapp;
+  const local = digits.startsWith("60") ? digits.slice(2) : digits;
+  const m = local.match(/^(\d{2})(\d{3,4})(\d{4})$/);
+  return m ? `+60 ${m[1]}-${m[2]} ${m[3]}` : `+${digits}`;
+}

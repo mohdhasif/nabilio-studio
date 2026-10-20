@@ -9,6 +9,8 @@ type SectionHeadingProps = {
   onDark?: boolean;
   /** Use "h1" for page intros; defaults to "h2" for in-page sections. */
   as?: "h1" | "h2";
+  /** id for the heading, e.g. for aria-labelledby. */
+  id?: string;
   className?: string;
 };
 
@@ -19,6 +21,7 @@ export function SectionHeading({
   align = "left",
   onDark = false,
   as: Heading = "h2",
+  id,
   className,
 }: SectionHeadingProps) {
   return (
@@ -29,6 +32,7 @@ export function SectionHeading({
         </Eyebrow>
       )}
       <Heading
+        id={id}
         className={cn(
           "font-bold",
           Heading === "h1" ? "text-h1" : "text-h2",
