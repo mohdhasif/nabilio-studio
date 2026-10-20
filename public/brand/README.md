@@ -1,11 +1,15 @@
 # Brand assets
 
-Place the approved Concept C (geometric N) logo files here:
+Official Nabilio Studio logo kit (Concept C, the geometric N). Do not modify the artwork or colours.
 
-- `nabilio-logo-main.png`
-- `nabilio-logo-horizontal.png` — for light backgrounds
-- `nabilio-logo-horizontal-dark.png` — for navy backgrounds
-- `nabilio-icon-transparent.png`
-- `nabilio-favicon.png`
+| File | Use |
+| --- | --- |
+| `nabilio-logo-main.*` | Stacked logo (symbol above wordmark) |
+| `nabilio-logo-horizontal.*` | Horizontal logo for light backgrounds |
+| `nabilio-logo-horizontal-dark.*` | Horizontal logo for navy backgrounds |
+| `nabilio-logo-horizontal*-trimmed.png` | The same PNGs with the transparent margins cropped (used in the header and footer) |
+| `nabilio-icon-transparent.*` | Symbol only |
+| `nabilio-favicon.*` | Symbol on a navy tile. Copied to `src/app/icon.svg` and `src/app/apple-icon.png` |
 
-Then set the paths in `src/config/site.ts` → `brand`. Until then the site uses a text wordmark.
+The header and footer use the PNGs. The SVG wordmarks render their text in system Arial, so they can look different from one device to another.
+Paths are configured in `src/config/site.ts` → `brand`.

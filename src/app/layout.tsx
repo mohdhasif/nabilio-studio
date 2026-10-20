@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
@@ -55,7 +58,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to main content
         </a>
-        {children}
+        {/* Without JavaScript, show content that would otherwise wait for its reveal animation. */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+        <MotionProvider>
+          <Header />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

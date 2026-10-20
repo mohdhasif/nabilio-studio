@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 
 type RevealProps = {
   children: React.ReactNode;
@@ -9,16 +9,13 @@ type RevealProps = {
   as?: "div" | "li" | "section";
 };
 
-/** Subtle fade-and-rise on first scroll into view. Static when reduced motion is preferred. */
+/**
+ * Subtle fade-and-rise on first scroll into view.
+ * The same element renders on server and client (no hydration mismatch); with
+ * prefers-reduced-motion, MotionProvider drops the movement and keeps only the fade.
+ */
 export function Reveal({ children, delay = 0, className, as = "div" }: RevealProps) {
-  const reduce = useReducedMotion();
   const Component = motion[as];
-
-  if (reduce) {
-    const Static = as;
-    return <Static className={className}>{children}</Static>;
-  }
-
   return (
     <Component
       className={className}
