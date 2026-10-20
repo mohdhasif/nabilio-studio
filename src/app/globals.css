@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/*
+ * Nabilio Studio design tokens.
+ * Brand colours are fixed — do not substitute the gold with yellow/bronze tones.
+ */
+@theme {
+  /* Brand */
+  --color-navy: #14243b;
+  --color-gold: #c6a76a;
+  --color-soft-white: #f7f8fa;
+  --color-ink: #172334;
+  --color-muted: #64748b;
+
+  /* Supporting neutrals derived from the navy */
+  --color-navy-deep: #0e1a2b;
+  --color-navy-raised: #1b2f4a;
+  --color-navy-line: #2a3d58;
+  --color-line: #e3e7ee;
+  --color-on-navy-muted: #b4bfcf;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale (fluid display sizes, fixed body sizes) */
+  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 4.25rem);
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: -0.025em;
+  --text-h1: clamp(2.125rem, 1.6rem + 2.2vw, 3.25rem);
+  --text-h1--line-height: 1.12;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  --text-h2--line-height: 1.18;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.4;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.7;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.5;
+  --text-eyebrow--letter-spacing: 0.18em;
+
+  /* Layout */
+  --container-site: 76rem;
+  --radius-card: 1rem;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-soft-white);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: inherit;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+  }
+
+  /* Visible, consistent keyboard focus across light and dark surfaces */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
