@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Car, Coffee, Wrench } from "lucide-react";
+import { AirVent, Car, Coffee } from "lucide-react";
 
 export type PortfolioCategory = "Automotive" | "Home Services" | "Food & Beverage";
 
@@ -35,14 +35,14 @@ export const conceptProjects: ConceptProject[] = [
     icon: Car,
   },
   {
-    slug: "home-repair-maintenance",
-    title: "Home Repair & Maintenance",
+    slug: "aircond-services",
+    title: "Aircond Service Company",
     category: "Home Services",
     description:
-      "A website concept for a home services provider covering air-conditioning, plumbing and electrical work, structured around service areas and fast enquiries.",
-    highlights: ["Service categories and coverage areas", "Simple quotation request", "Trust-building company profile"],
-    demoUrl: null,
-    icon: Wrench,
+      "CoolNest Aircond Services, a fictional air-conditioning company. A mobile-first website covering cleaning, chemical wash, repair and installation, with a simple booking enquiry.",
+    highlights: ["Clear service breakdowns", "Service booking enquiry form", "Trust-building company profile"],
+    demoUrl: "/demos/coolnest",
+    icon: AirVent,
   },
   {
     slug: "cafe-bakery",
