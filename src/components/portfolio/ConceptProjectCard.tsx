@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { ConceptProject } from "@/content/portfolio";
 import { cn } from "@/lib/utils";
@@ -12,7 +13,36 @@ type Props = {
   headingLevel?: "h2" | "h3";
 };
 
+function DemoLink({ href, className, title }: { href: string; className: string; title: string }) {
+  const content = (
+    <>
+      View Live Demo
+      <span className="sr-only">: {title}</span>
+      <ArrowUpRight className="size-4" aria-hidden />
+    </>
+  );
+  // Internal demos (e.g. /demos/torquevale) stay in the same tab; external demos open a new one.
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} className={className}>
+        {content}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      {content}
+      <span className="sr-only"> (opens in a new tab)</span>
+    </a>
+  );
+}
+
 export function ConceptProjectCard({ project, onDark = false, detailed = false, headingLevel: Heading = "h3" }: Props) {
+  const demoLinkClass = cn(
+    "inline-flex items-center gap-1.5 font-display text-sm font-semibold transition-colors",
+    onDark ? "text-gold hover:text-soft-white" : "text-navy hover:text-gold",
+  );
+
   return (
     <article
       className={cn(
@@ -54,19 +84,7 @@ export function ConceptProjectCard({ project, onDark = false, detailed = false, 
         )}
         <div className="mt-auto pt-6">
           {project.demoUrl ? (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "inline-flex items-center gap-1.5 font-display text-sm font-semibold transition-colors",
-                onDark ? "text-gold hover:text-soft-white" : "text-navy hover:text-gold",
-              )}
-            >
-              View live demo
-              <ArrowUpRight className="size-4" aria-hidden />
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
+            <DemoLink href={project.demoUrl} className={demoLinkClass} title={project.title} />
           ) : (
             <p className={cn("text-sm", onDark ? "text-on-navy-muted/80" : "text-muted")}>Live demo coming soon</p>
           )}

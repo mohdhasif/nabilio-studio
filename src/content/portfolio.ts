@@ -9,7 +9,7 @@ export type ConceptProject = {
   category: PortfolioCategory;
   description: string;
   highlights: string[];
-  /** Working demo URL — add when a live demo is available. */
+  /** Working demo URL (internal path such as "/demos/…" or a full URL); null shows "Live demo coming soon". */
   demoUrl: string | null;
   /** Icon shown in the generated preview mock-up (no stock imagery). */
   icon: LucideIcon;
@@ -29,9 +29,9 @@ export const conceptProjects: ConceptProject[] = [
     title: "Automotive Service Centre",
     category: "Automotive",
     description:
-      "A website concept for a car service and repair workshop, focused on listing services clearly and making appointment enquiries quick on mobile.",
-    highlights: ["Service menu with clear descriptions", "WhatsApp booking enquiry", "Location and operating hours"],
-    demoUrl: null,
+      "Torquevale Motorworks, a fictional car service workshop. A multi-page website focused on listing services clearly and making appointment enquiries quick on mobile.",
+    highlights: ["Service menu with clear descriptions", "Appointment enquiry form", "Workshop hours and location"],
+    demoUrl: "/demos/torquevale",
     icon: Car,
   },
   {

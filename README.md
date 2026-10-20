@@ -15,6 +15,12 @@ _Crafting Digital Excellence._
 | Portfolio | `/portfolio` | Filterable **concept projects** (demonstration only, not client work)                 |
 | Contact   | `/contact`   | WhatsApp and email options, and an enquiry form                                       |
 
+Portfolio demo:
+
+| Demo                               | Path                | Notes                                                           |
+| ---------------------------------- | ------------------- | --------------------------------------------------------------- |
+| Torquevale Motorworks (automotive) | `/demos/torquevale` | Fictional workshop: home, services, workshop, appointment pages |
+
 Also included: per-page metadata and Open Graph images, `sitemap.xml`, `robots.txt`, web manifest, schema.org structured
 data, a custom 404 page, an error page and basic security headers.
 
@@ -89,6 +95,24 @@ Web3Forms in `src/components/contact/EnquiryForm.tsx`.
 **Portfolio rule:** concept projects must keep the "Concept Project — Demonstration Only" label. Don't add client names,
 testimonials, logos or results unless they are real and approved.
 
+## Portfolio demos
+
+Demos are full websites for **fictional** businesses. They live in the same app, so there's one repository and one
+deployment:
+
+- Routes: `src/app/demos/<name>/` with its own `layout.tsx` (own header, footer, fonts and colours)
+- Content and components: `src/demos/<name>/`
+- The corporate pages sit in the `src/app/(site)/` route group, which adds the Nabilio header and footer. Demos are
+  outside that group, so they don't get them. URLs are unaffected by the group.
+- Each demo shows a permanent "Demo website" notice, is set to `noindex`, and is left out of the sitemap, so it is never
+  mistaken for a real business.
+- Link a demo from the portfolio by setting `demoUrl` in `src/content/portfolio.ts`. Internal paths open in the same
+  tab; full URLs open in a new tab.
+
+Torquevale Motorworks uses only invented details: a non-working phone number (`03-0000 0000`), a reserved `.example`
+email address and a placeholder address. Its appointment form validates input, then states that nothing was sent. Do
+not add real reviews, customer names or achievements.
+
 ## Brand assets
 
 The official logo kit (Concept C, the geometric N) is in `public/brand/`. `public/brand/README.md` explains each file. The
@@ -120,7 +144,9 @@ contrast there.
 
 ```
 src/
-  app/                    routes, layout, metadata files (sitemap, robots, OG images), global styles
+  app/                    root layout, metadata files (sitemap, robots, icons), global styles
+    (site)/               Nabilio Studio pages (adds header and footer)
+    demos/torquevale/     automotive demo routes
   assets/og-fonts/        fonts for the generated Open Graph images
   components/
     brand/                Logo, GeometricMark
@@ -133,6 +159,7 @@ src/
     ui/                   Button, Card, Container, Section, SectionHeading, Eyebrow
   config/site.ts          site settings
   content/                editable content
+  demos/torquevale/       demo content and components
   lib/                    metadata, structured data, OG image and class helpers
 public/brand/             official logo kit
 ```
