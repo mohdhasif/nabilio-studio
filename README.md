@@ -17,10 +17,11 @@ _Crafting Digital Excellence._
 
 Portfolio demo:
 
-| Demo                                      | Path                | Notes                                                                  |
-| ----------------------------------------- | ------------------- | ---------------------------------------------------------------------- |
-| Torquevale Motorworks (automotive)        | `/demos/torquevale` | Fictional workshop: home, services, workshop, appointment pages        |
-| CoolNest Aircond Services (home services) | `/demos/coolnest`   | Fictional aircond company: home, services, about, book a service pages |
+| Demo                                      | Path                 | Notes                                                                           |
+| ----------------------------------------- | -------------------- | ------------------------------------------------------------------------------- |
+| Torquevale Motorworks (automotive)        | `/demos/torquevale`  | Fictional workshop: home, services, workshop, appointment pages                 |
+| CoolNest Aircond Services (home services) | `/demos/coolnest`    | Fictional aircond company: home, services, about, book a service pages          |
+| Maison Brew (food & beverage)             | `/demos/maison-brew` | Fictional café: home, menu (filterable, sample MYR prices), our story, visit us |
 
 Also included: per-page metadata and Open Graph images, `sitemap.xml`, `robots.txt`, web manifest, schema.org structured
 data, a custom 404 page, an error page and basic security headers.
@@ -110,9 +111,13 @@ deployment:
 - Link a demo from the portfolio by setting `demoUrl` in `src/content/portfolio.ts`. Internal paths open in the same
   tab; full URLs open in a new tab.
 
-Both demos use only invented details: non-working phone numbers (`03-0000 0000`, `012-000 0000`), reserved
+All demos use only invented details: non-working phone numbers (`03-0000 0000`, `012-000 0000`), reserved
 `.example` email addresses, and either a placeholder address or no address at all. Their forms validate input, then
-state that nothing was sent or stored. Do not add real reviews, certifications, customer names or achievements.
+state that nothing was sent or stored; Maison Brew has no ordering or reservation system at all. Do not add real
+reviews, awards, certifications, testimonials, customer names or achievements.
+
+Maison Brew ships without photography: each image slot renders an illustrated placeholder labelled "Photo
+placeholder". To use real, properly licensed photos, see `public/demos/maison-brew/README.md`.
 
 ## Brand assets
 
@@ -149,6 +154,7 @@ src/
     (site)/               Nabilio Studio pages (adds header and footer)
     demos/torquevale/     automotive demo routes
     demos/coolnest/       aircond demo routes
+    demos/maison-brew/    café demo routes
   assets/og-fonts/        fonts for the generated Open Graph images
   components/
     brand/                Logo, GeometricMark
@@ -161,7 +167,7 @@ src/
     ui/                   Button, Card, Container, Section, SectionHeading, Eyebrow
   config/site.ts          site settings
   content/                editable content
-  demos/<name>/           demo content and components (torquevale, coolnest)
+  demos/<name>/           demo content and components (torquevale, coolnest, maison-brew)
   lib/                    metadata, structured data, OG image and class helpers
 public/brand/             official logo kit
 ```

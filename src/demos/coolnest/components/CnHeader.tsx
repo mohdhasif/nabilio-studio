@@ -17,6 +17,9 @@ export function CnHeader() {
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  // The demo notice sits above the sticky header, so the panel starts at the header's current bottom edge.
+  const [panelTop, setPanelTop] = useState(0);
 
   // Close the mobile menu on navigation.
   const [lastPath, setLastPath] = useState(pathname);
@@ -46,7 +49,7 @@ export function CnHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-cn-line bg-white/90 backdrop-blur-md">
+      <header ref={headerRef} className="sticky top-0 z-50 border-b border-cn-line bg-white/90 backdrop-blur-md">
         <div className="mx-auto flex h-18 max-w-site items-center justify-between gap-6 px-5 sm:px-8">
           <CnLogo />
           <nav aria-label="CoolNest" className="hidden md:block">
@@ -83,7 +86,10 @@ export function CnHeader() {
               aria-expanded={open}
               aria-controls="cn-mobile-menu"
               aria-label={open ? "Close menu" : "Open menu"}
-              onClick={() => setOpen((v) => !v)}
+              onClick={() => {
+                setPanelTop(headerRef.current?.getBoundingClientRect().bottom ?? 0);
+                setOpen((v) => !v);
+              }}
             >
               {open ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
             </button>
@@ -96,7 +102,8 @@ export function CnHeader() {
         id="cn-mobile-menu"
         ref={panelRef}
         hidden={!open}
-        className="fixed inset-x-0 top-18 bottom-0 z-40 overflow-y-auto border-t border-cn-line bg-white md:hidden"
+        style={{ top: panelTop }}
+        className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto border-t border-cn-line bg-white md:hidden"
       >
         <nav aria-label="CoolNest mobile" className="px-5 py-6 sm:px-8">
           <ul className="space-y-2">

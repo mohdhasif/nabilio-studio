@@ -45,13 +45,13 @@ export const conceptProjects: ConceptProject[] = [
     icon: AirVent,
   },
   {
-    slug: "cafe-bakery",
-    title: "Café & Bakery",
+    slug: "specialty-coffee-cafe",
+    title: "Specialty Coffee Café",
     category: "Food & Beverage",
     description:
-      "A website concept for a neighbourhood café and bakery, presenting the menu, ambience and location in a warm, easy-to-browse layout.",
-    highlights: ["Menu highlights", "Location, hours and directions", "Order and reservation enquiries"],
-    demoUrl: null,
+      "Maison Brew, a fictional specialty coffee café. An editorial-style website presenting the menu, story and location in a warm, easy-to-browse layout.",
+    highlights: ["Filterable menu with sample prices", "Featured drinks and brand story", "Location and opening hours"],
+    demoUrl: "/demos/maison-brew",
     icon: Coffee,
   },
 ];
