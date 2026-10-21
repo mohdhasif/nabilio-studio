@@ -17,11 +17,11 @@ _Crafting Digital Excellence._
 
 Portfolio demo:
 
-| Demo                                      | Path                 | Notes                                                                           |
-| ----------------------------------------- | -------------------- | ------------------------------------------------------------------------------- |
-| Torquevale Motorworks (automotive)        | `/demos/torquevale`  | Fictional workshop: home, services, workshop, appointment pages                 |
-| CoolNest Aircond Services (home services) | `/demos/coolnest`    | Fictional aircond company: home, services, about, book a service pages          |
-| Maison Brew (food & beverage)             | `/demos/maison-brew` | Fictional café: home, menu (filterable, sample MYR prices), our story, visit us |
+| Demo                                      | Path                 | Notes                                                                                            |
+| ----------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------ |
+| Torquevale Motorworks (automotive)        | `/demos/torquevale`  | Fictional workshop: home, services, workshop, appointment pages                                  |
+| CoolNest Aircond Services (home services) | `/demos/coolnest`    | Fictional aircond company: services, how it works, coverage, gallery, WhatsApp quotation enquiry |
+| Maison Brew (food & beverage)             | `/demos/maison-brew` | Fictional café: home, menu (filterable, sample MYR prices), our story, visit us                  |
 
 Also included: per-page metadata and Open Graph images, `sitemap.xml`, `robots.txt`, web manifest, schema.org structured
 data, a custom 404 page, an error page and basic security headers.
@@ -115,6 +115,10 @@ All demos use only invented details: non-working phone numbers (`03-0000 0000`, 
 `.example` email addresses, and either a placeholder address or no address at all. Their forms validate input, then
 state that nothing was sent or stored; Maison Brew has no ordering or reservation system at all. Do not add real
 reviews, awards, certifications, testimonials, customer names or achievements.
+
+CoolNest's quotation form validates the enquiry and opens WhatsApp with a formatted message but **no recipient**
+(`ENQUIRY_WHATSAPP_NUMBER = null` in `src/demos/coolnest/content.ts`), so nothing can reach a real business. Its
+gallery uses Pexels photos captioned as illustrative; sources are in `src/demos/coolnest/images/CREDITS.md`.
 
 Maison Brew uses Unsplash photography (Unsplash License), optimised and stored in `src/demos/maison-brew/images/`
 and served through `next/image` with blur placeholders. Sources are listed in `src/demos/maison-brew/images/CREDITS.md`.
