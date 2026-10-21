@@ -28,7 +28,7 @@ export function SiteMockup({ icon: Icon, address = "yourbusiness.my", className 
           <span className="size-2 rounded-full bg-soft-white/20" />
           <span className="size-2 rounded-full bg-soft-white/20" />
         </div>
-        <div className="flex-1 truncate rounded-md bg-navy-deep/80 px-3 py-1 text-[10px] tracking-wide text-on-navy-muted/70">
+        <div className="w-0 min-w-0 flex-1 truncate rounded-md bg-navy-deep/80 px-3 py-1 text-[10px] tracking-wide text-on-navy-muted/70">
           {address}
         </div>
       </div>
