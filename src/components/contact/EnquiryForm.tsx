@@ -57,8 +57,9 @@ const selectArrow: React.CSSProperties = {
 };
 const selectBase = "appearance-none bg-[length:1rem] bg-[right_1rem_center] bg-no-repeat pr-10";
 
+// 16px text on phones stops iOS Safari zooming in when a field is focused.
 const inputBase =
-  "mt-2 block w-full rounded-xl border bg-white px-4 py-3 text-[0.9375rem] text-ink placeholder:text-muted/70 " +
+  "mt-2 block w-full rounded-xl border bg-white px-4 py-3 text-base text-ink placeholder:text-muted/70 sm:text-[0.9375rem] " +
   "transition-[border-color,box-shadow] duration-200 focus:border-navy focus:ring-2 focus:ring-gold/40 focus:outline-none";
 
 type FieldProps = {
@@ -255,13 +256,13 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
         <div className="flex flex-col gap-3 sm:flex-row">
           {wa && (
             <Button type="submit" name="channel" value="whatsapp" size="lg">
-              <MessageCircle className="size-4" aria-hidden />
+              <MessageCircle className="size-4 max-[359px]:hidden" aria-hidden />
               Continue on WhatsApp
             </Button>
           )}
           {mail && (
             <Button type="submit" name="channel" value="email" size="lg" variant={wa ? "outlineDark" : "primary"}>
-              <Mail className="size-4" aria-hidden />
+              <Mail className="size-4 max-[359px]:hidden" aria-hidden />
               Continue by email
             </Button>
           )}
