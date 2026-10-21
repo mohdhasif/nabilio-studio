@@ -102,6 +102,27 @@
   --font-cn-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
+/*
+ * Maison Brew — fictional specialty café demo (/demos/maison-brew).
+ * Warm editorial palette, distinct from Torquevale, CoolNest and the Nabilio brand.
+ */
+@theme {
+  --color-mb-espresso: #2a1c13;
+  --color-mb-roast: #5a3e2b;
+  --color-mb-muted: #6e5a4b;
+  --color-mb-caramel: #87552e;
+  --color-mb-cream: #f5eee3;
+  --color-mb-paper: #fbf8f3;
+  --color-mb-beige: #e9dcc8;
+  --color-mb-latte: #d9c3a5;
+  --color-mb-on-espresso-accent: #c99a6b;
+}
+
+/* Inline so the font resolves inside the demo layout, where --font-fraunces is defined. */
+@theme inline {
+  --font-mb-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
 /* Muted text resolves per surface (see --muted-text below); the brand value is #64748B. */
 @theme inline {
   --color-muted: var(--muted-text);
@@ -180,6 +201,19 @@
   .cn-theme ::selection {
     background-color: var(--color-cn-mint);
     color: var(--color-cn-ink);
+  }
+
+  /* Maison Brew demo surface */
+  .mb-theme :is(h1, h2, h3, h4) {
+    font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+    font-weight: 400;
+  }
+  .mb-theme :focus-visible {
+    outline-color: var(--color-mb-caramel);
+  }
+  .mb-theme ::selection {
+    background-color: var(--color-mb-latte);
+    color: var(--color-mb-espresso);
   }
 
   @media (prefers-reduced-motion: reduce) {
