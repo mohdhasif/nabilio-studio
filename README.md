@@ -116,8 +116,8 @@ All demos use only invented details: non-working phone numbers (`03-0000 0000`, 
 state that nothing was sent or stored; Maison Brew has no ordering or reservation system at all. Do not add real
 reviews, awards, certifications, testimonials, customer names or achievements.
 
-Maison Brew ships without photography: each image slot renders an illustrated placeholder labelled "Photo
-placeholder". To use real, properly licensed photos, see `public/demos/maison-brew/README.md`.
+Maison Brew uses Unsplash photography (Unsplash License), optimised and stored in `src/demos/maison-brew/images/`
+and served through `next/image` with blur placeholders. Sources are listed in `src/demos/maison-brew/images/CREDITS.md`.
 
 ## Brand assets
 
