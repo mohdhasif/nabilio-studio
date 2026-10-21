@@ -47,7 +47,30 @@ export function MbFooter() {
       </div>
       <div className="border-t border-mb-cream/10">
         <div className="mx-auto flex max-w-site flex-col gap-2 px-5 py-6 text-xs sm:flex-row sm:justify-between sm:px-8">
-          <p>Fictional café for portfolio demonstration only. Menu, prices and contact details are not real.</p>
+          <div className="space-y-1">
+            <p>Fictional café for portfolio demonstration only. Menu, prices and contact details are not real.</p>
+            <p>
+              Photography from{" "}
+              <a
+                href="https://unsplash.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-mb-cream underline underline-offset-4 hover:text-mb-on-espresso-accent"
+              >
+                Unsplash<span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              , used under the{" "}
+              <a
+                href="https://unsplash.com/license"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-mb-cream underline underline-offset-4 hover:text-mb-on-espresso-accent"
+              >
+                Unsplash License<span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              . Photos are illustrative and do not show a real Maison Brew.
+            </p>
+          </div>
           <p>
             Demo website designed &amp; built by{" "}
             <Link href="/" className="font-semibold text-mb-cream underline-offset-4 hover:underline">

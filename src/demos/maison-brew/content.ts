@@ -1,3 +1,14 @@
+import type { StaticImageData } from "next/image";
+import cafeCounter from "./images/cafe-counter.jpg";
+import coffeeBeans from "./images/coffee-beans.jpg";
+import croissantTray from "./images/croissant-tray.jpg";
+import croissantsSugar from "./images/croissants-sugar.jpg";
+import heroGlassLatte from "./images/hero-glass-latte.jpg";
+import lattePour from "./images/latte-pour.jpg";
+import matchaLatte from "./images/matcha-latte.jpg";
+import pourOver from "./images/pour-over.jpg";
+import windowTable from "./images/window-table.jpg";
+
 /**
  * Maison Brew — a FICTIONAL specialty café created by Nabilio Studio as a portfolio
  * demonstration. Every name, price, address and detail here is invented.
@@ -29,13 +40,12 @@ export const nav = [
 ];
 
 /**
- * Photo slots. No photography is bundled: each slot renders a labelled illustrated
- * placeholder until `src` points to a properly licensed image in /public/demos/maison-brew.
+ * Stock photography from Unsplash, used under the Unsplash License (https://unsplash.com/license).
+ * Optimised copies live in ./images; sources are listed in ./images/CREDITS.md.
  */
 export type PhotoSlot = {
-  src: string | null;
+  src: StaticImageData;
   alt: string;
-  motif: "cup" | "latte" | "croissant" | "beans" | "cake" | "interior" | "iced" | "pour";
 };
 
 export type MenuCategory = "Coffee" | "Non-Coffee" | "Pastries" | "Desserts";
@@ -184,30 +194,41 @@ export const menu: MenuItem[] = [
   },
 ];
 
+/** Featured items use menu items that the available photography genuinely shows. */
 export const featured: { item: string; photo: PhotoSlot }[] = [
   {
     item: "Maison Gula Melaka Latte",
-    photo: { src: null, alt: "Latte with palm sugar syrup in a ceramic cup", motif: "latte" },
+    photo: { src: lattePour, alt: "Barista pouring latte art into a glass of hot latte" },
   },
   {
     item: "Seasonal Pour-Over",
-    photo: { src: null, alt: "Pour-over coffee being brewed through a paper filter", motif: "pour" },
+    photo: { src: pourOver, alt: "Barista pouring hot water from a gooseneck kettle into a pour-over coffee brewer" },
   },
   {
-    item: "Yuzu Sparkling Tea",
-    photo: { src: null, alt: "Iced sparkling tea with a slice of yuzu", motif: "iced" },
+    item: "Ceremonial Matcha Latte",
+    photo: { src: matchaLatte, alt: "Matcha latte with leaf-shaped latte art in a white cup" },
   },
   {
-    item: "Basque Burnt Cheesecake",
-    photo: { src: null, alt: "Slice of Basque burnt cheesecake on a plate", motif: "cake" },
+    item: "Butter Croissant",
+    photo: { src: croissantsSugar, alt: "Two golden croissants being dusted with icing sugar on a dark slate" },
   },
 ];
 
 export const photos = {
-  hero: { src: null, alt: "Flat white with latte art on a marble counter", motif: "cup" } satisfies PhotoSlot,
-  interior: { src: null, alt: "Sunlit café interior with wooden tables", motif: "interior" } satisfies PhotoSlot,
-  pastries: { src: null, alt: "Freshly baked croissants on a tray", motif: "croissant" } satisfies PhotoSlot,
-  beans: { src: null, alt: "Roasted coffee beans in a scoop", motif: "beans" } satisfies PhotoSlot,
-};
+  hero: {
+    src: heroGlassLatte,
+    alt: "A small glass of milky coffee on a sunlit white table with soft leaf shadows",
+  },
+  interior: {
+    src: windowTable,
+    alt: "Round café table by a large window with a French press, cups and a potted plant",
+  },
+  pastries: { src: croissantTray, alt: "Tray of freshly baked croissants on a café counter" },
+  beans: { src: coffeeBeans, alt: "Roasted coffee beans in a white ceramic bowl" },
+  counter: {
+    src: cafeCounter,
+    alt: "Café counter with an espresso machine, grinders and warm pendant lights against a white brick wall",
+  },
+} satisfies Record<string, PhotoSlot>;
 
 export const formatPrice = (price: number) => `RM ${price.toFixed(2)}`;

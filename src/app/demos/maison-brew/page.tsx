@@ -50,13 +50,14 @@ export default function MaisonBrewHome() {
               </MbButtonLink>
             </FadeIn>
           </div>
-          <FadeIn delay={0.2} className="relative">
+          {/* Not animated: the hero photo is the largest element on load. */}
+          <div className="relative">
             <MbPhoto photo={photos.hero} priority className="aspect-[4/5] rounded-t-[12rem] rounded-b-3xl" />
             <div className="absolute -bottom-6 -left-4 hidden rounded-2xl bg-mb-paper px-5 py-4 shadow-[0_20px_40px_-24px_rgba(42,28,19,0.45)] sm:block">
               <p className="text-[0.6875rem] tracking-[0.2em] text-mb-muted uppercase">Open Tuesday – Sunday</p>
               <p className="mt-1 font-mb-serif text-lg">From 8:00 am</p>
             </div>
-          </FadeIn>
+          </div>
         </div>
       </section>
 
@@ -72,7 +73,7 @@ export default function MaisonBrewHome() {
                   House <em>favourites</em>
                 </>
               }
-              description="A few things we’re proud of, from our palm-sugar latte to a cheesecake worth saving room for."
+              description="A few things we’re proud of, from our palm-sugar latte to croissants laminated over three days."
             />
           </Reveal>
           <Reveal delay={0.1} className="shrink-0">

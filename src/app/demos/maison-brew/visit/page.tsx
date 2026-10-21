@@ -78,7 +78,11 @@ export default function MaisonBrewVisit() {
             </div>
           </FadeIn>
           <Reveal delay={0.1}>
-            <MbPhoto photo={photos.interior} className="aspect-[4/5] h-full rounded-3xl lg:aspect-auto" />
+            <MbPhoto
+              photo={photos.counter}
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="aspect-[4/5] h-full rounded-3xl lg:aspect-auto"
+            />
           </Reveal>
         </div>
 
