@@ -80,6 +80,28 @@
   --font-tv-display: var(--font-barlow-condensed), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
+/*
+ * CoolNest Aircond Services — fictional air-conditioning demo (/demos/coolnest).
+ * Light, airy palette, deliberately distinct from Torquevale and the Nabilio brand.
+ */
+@theme {
+  --color-cn-ink: #0c2b3c;
+  --color-cn-muted: #4b6573;
+  --color-cn-primary: #0a6e94;
+  --color-cn-primary-hover: #085a79;
+  --color-cn-mint: #14b8a6;
+  --color-cn-mint-text: #0f766e;
+  --color-cn-sky: #e8f6fb;
+  --color-cn-ice: #f4fafc;
+  --color-cn-line: #d6e8ef;
+  --color-cn-on-ink-muted: #a9c3cf;
+}
+
+/* Inline so the font resolves inside the demo layout, where --font-sora is defined. */
+@theme inline {
+  --font-cn-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
 /* Muted text resolves per surface (see --muted-text below); the brand value is #64748B. */
 @theme inline {
   --color-muted: var(--muted-text);
@@ -146,6 +168,18 @@
   .tv-theme ::selection {
     background-color: var(--color-tv-accent);
     color: var(--color-tv-black);
+  }
+
+  /* CoolNest demo surface */
+  .cn-theme :is(h1, h2, h3, h4) {
+    font-family: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+  .cn-theme :focus-visible {
+    outline-color: var(--color-cn-primary);
+  }
+  .cn-theme ::selection {
+    background-color: var(--color-cn-mint);
+    color: var(--color-cn-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
