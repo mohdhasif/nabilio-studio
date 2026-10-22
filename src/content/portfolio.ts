@@ -39,8 +39,8 @@ export const conceptProjects: ConceptProject[] = [
     title: "Aircond Service Company",
     category: "Home Services",
     description:
-      "CoolNest Aircond Services, a fictional air-conditioning company. A mobile-first website covering cleaning, chemical wash, repair and installation, with a simple booking enquiry.",
-    highlights: ["Clear service breakdowns", "Service booking enquiry form", "Trust-building company profile"],
+      "CoolNest Aircond Services, a fictional air-conditioning company. A mobile-first website covering cleaning, chemical wash, repair and installation, with a structured WhatsApp quotation enquiry.",
+    highlights: ["Clear service breakdowns", "WhatsApp quotation enquiry form", "Trust-building company profile"],
     demoUrl: "/demos/coolnest",
     icon: AirVent,
   },

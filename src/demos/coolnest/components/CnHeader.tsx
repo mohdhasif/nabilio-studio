@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { BASE, nav } from "../content";
+import { BASE, QUOTE_CTA, nav } from "../content";
 import { cn } from "@/lib/utils";
 import { CnButtonLink } from "./CnButton";
 import { CnLogo } from "./CnLogo";
@@ -76,7 +76,7 @@ export function CnHeader() {
           <div className="flex items-center gap-3">
             <div className="hidden sm:block">
               <CnButtonLink href={`${BASE}/book`} className="h-11">
-                Book a Service
+                {QUOTE_CTA}
               </CnButtonLink>
             </div>
             <button
@@ -127,7 +127,7 @@ export function CnHeader() {
             })}
           </ul>
           <CnButtonLink href={`${BASE}/book`} className="mt-6 w-full" onClick={() => setOpen(false)}>
-            Book a Service
+            {QUOTE_CTA}
           </CnButtonLink>
         </nav>
       </div>

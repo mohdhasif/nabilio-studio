@@ -5,9 +5,13 @@ import { FadeIn } from "@/components/motion/FadeIn";
 import { Reveal } from "@/components/motion/Reveal";
 import { AirconIllustration } from "@/demos/coolnest/components/AirconIllustration";
 import { BookCta } from "@/demos/coolnest/components/BookCta";
+import { HowItWorks } from "@/demos/coolnest/components/HowItWorks";
+import { IllustrativeNote } from "@/demos/coolnest/components/IllustrativeNote";
+import { ServiceCoverage } from "@/demos/coolnest/components/ServiceCoverage";
+import { WorkGallery } from "@/demos/coolnest/components/WorkGallery";
 import { CnButtonLink } from "@/demos/coolnest/components/CnButton";
 import { CnSectionTitle } from "@/demos/coolnest/components/CnSectionTitle";
-import { BASE, services, steps, values } from "@/demos/coolnest/content";
+import { BASE, QUOTE_CTA, services, values } from "@/demos/coolnest/content";
 
 export const metadata: Metadata = {
   title: { absolute: "CoolNest Aircond Services (Demo) — Aircond Cleaning, Repair & Installation" },
@@ -46,18 +50,23 @@ export default function CoolNestHome() {
             </FadeIn>
             <FadeIn delay={0.16}>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-cn-muted">
-                Aircond cleaning, chemical wash, repair and installation — done neatly, explained clearly, and booked in
-                a few taps.
+                General servicing, chemical cleaning, troubleshooting and installation. Describe the problem once and
+                get a quotation over WhatsApp — no endless back-and-forth.
               </p>
             </FadeIn>
             <FadeIn delay={0.24} className="mt-9 flex flex-col gap-3 sm:flex-row">
               <CnButtonLink href={`${BASE}/book`}>
-                <CalendarDays className="size-5" aria-hidden />
-                Book a Service
+                <CalendarDays className="size-5 max-[359px]:hidden" aria-hidden />
+                {QUOTE_CTA}
               </CnButtonLink>
               <CnButtonLink href={`${BASE}/services`} variant="outline">
                 View Services
               </CnButtonLink>
+            </FadeIn>
+            <FadeIn delay={0.28}>
+              <p className="mt-3 text-xs text-cn-muted">
+                Demo call to action — CoolNest is fictional and does not offer real quotations.
+              </p>
             </FadeIn>
             <FadeIn delay={0.32}>
               <ul className="mt-10 flex flex-col gap-3 text-sm text-cn-ink sm:flex-row sm:flex-wrap sm:gap-x-6">
@@ -88,8 +97,13 @@ export default function CoolNestHome() {
             align="center"
             kicker="Services"
             title="Everything your aircond needs"
-            description="Four core services for homes and small offices, from routine cleaning to new installations."
+            description="Four core services for homes and small offices, from routine servicing to new installations."
           />
+          <div className="mt-6 text-center">
+            <IllustrativeNote>
+              Illustrative services for a fictional demo — not verified offerings of any real business.
+            </IllustrativeNote>
+          </div>
         </Reveal>
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {services.map((s, i) => (
@@ -116,30 +130,11 @@ export default function CoolNestHome() {
         </ul>
       </section>
 
-      {/* How it works */}
-      <section aria-labelledby="cn-steps" className="bg-cn-ice">
-        <div className="mx-auto max-w-site px-5 py-16 sm:px-8 sm:py-24">
-          <Reveal>
-            <CnSectionTitle
-              id="cn-steps"
-              kicker="How it works"
-              title="Booking a service is simple"
-              description="From enquiry to a cool, quiet room in four clear steps."
-            />
-          </Reveal>
-          <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((step, i) => (
-              <Reveal as="li" key={step.title} delay={i * 0.06} className="rounded-3xl bg-white p-7 shadow-sm">
-                <span className="flex size-10 items-center justify-center rounded-full bg-cn-primary font-cn-display text-sm font-bold text-white">
-                  {i + 1}
-                </span>
-                <h3 className="mt-5 text-lg font-semibold">{step.title}</h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-cn-muted">{step.text}</p>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <HowItWorks />
+
+      <WorkGallery />
+
+      <ServiceCoverage />
 
       {/* Why CoolNest */}
       <section aria-labelledby="cn-why" className="mx-auto max-w-site px-5 py-16 sm:px-8 sm:py-24">

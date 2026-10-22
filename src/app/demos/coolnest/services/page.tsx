@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { BookCta } from "@/demos/coolnest/components/BookCta";
 import { CnButtonLink } from "@/demos/coolnest/components/CnButton";
 import { CnPageIntro } from "@/demos/coolnest/components/CnPageIntro";
+import { IllustrativeNote } from "@/demos/coolnest/components/IllustrativeNote";
 import { BASE, services } from "@/demos/coolnest/content";
 
 export const metadata: Metadata = {
@@ -19,10 +20,14 @@ export default function CoolNestServices() {
       <CnPageIntro
         kicker="Services"
         title="Aircond services for homes and small offices"
-        description="Choose the service that fits your unit. Not sure which one you need? Pick “Repair & Troubleshooting” and a technician will advise."
+        description="General servicing, chemical cleaning, troubleshooting and installation explained. Not sure which you need? Describe the symptoms in your enquiry and the business will advise."
       />
 
       <section aria-label="Service details" className="mx-auto max-w-site space-y-6 px-5 pb-16 sm:px-8 sm:pb-24">
+        <IllustrativeNote>
+          All services, inclusions and durations are illustrative for this fictional demo — not verified offerings of
+          any real business.
+        </IllustrativeNote>
         {services.map((s) => (
           <Reveal key={s.slug}>
             <article
@@ -56,7 +61,7 @@ export default function CoolNestServices() {
                   </ul>
                 </div>
                 <CnButtonLink href={`${BASE}/book?service=${s.slug}`} className="mt-8">
-                  Book {s.title}
+                  Get a quotation<span className="sr-only"> for {s.title}</span>
                 </CnButtonLink>
               </div>
               <div className="self-start rounded-3xl bg-linear-to-br from-cn-sky to-cn-ice p-7">
@@ -79,7 +84,7 @@ export default function CoolNestServices() {
         </p>
       </section>
 
-      <BookCta title="Ready to book your aircond service?" />
+      <BookCta title="Ready for a quotation?" />
     </>
   );
 }

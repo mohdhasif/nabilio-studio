@@ -4,7 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { BookCta } from "@/demos/coolnest/components/BookCta";
 import { CnPageIntro } from "@/demos/coolnest/components/CnPageIntro";
 import { CnSectionTitle } from "@/demos/coolnest/components/CnSectionTitle";
-import { BASE, brand, steps, values } from "@/demos/coolnest/content";
+import { BASE, brand, values, visitSteps } from "@/demos/coolnest/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -54,7 +54,7 @@ export default function CoolNestAbout() {
           <Reveal>
             <CnSectionTitle id="cn-visit" kicker="What to expect" title="On the day of your service" />
             <ol className="mt-8 space-y-4">
-              {steps.map((step, i) => (
+              {visitSteps.map((step, i) => (
                 <li key={step.title} className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm">
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-cn-primary font-cn-display text-sm font-bold text-white">
                     {i + 1}

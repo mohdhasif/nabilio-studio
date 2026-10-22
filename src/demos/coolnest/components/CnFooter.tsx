@@ -14,7 +14,7 @@ export function CnFooter() {
         <nav aria-label="CoolNest footer">
           <h2 className="font-cn-display text-base font-semibold text-white">Explore</h2>
           <ul className="mt-4 space-y-2.5">
-            {[...nav, { label: "Book a Service", href: `${BASE}/book` }].map((item) => (
+            {[...nav, { label: "Free Quotation (demo)", href: `${BASE}/book` }].map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-white">
                   {item.label}
