@@ -29,8 +29,8 @@ export const conceptProjects: ConceptProject[] = [
     title: "Automotive Service Centre",
     category: "Automotive",
     description:
-      "Torquevale Motorworks, a fictional car service workshop. A multi-page website focused on listing services clearly and making appointment enquiries quick on mobile.",
-    highlights: ["Service menu with clear descriptions", "Appointment enquiry form", "Workshop hours and location"],
+      "Torquevale Motorworks, a fictional car service workshop. A multi-page website with a clear service menu and a structured WhatsApp quotation enquiry that captures the car, mileage and symptoms up front.",
+    highlights: ["Service menu with clear descriptions", "WhatsApp quotation enquiry form", "Workshop hours and location"],
     demoUrl: "/demos/torquevale",
     icon: Car,
   },

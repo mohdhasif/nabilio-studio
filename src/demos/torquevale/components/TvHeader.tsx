@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { BASE, nav } from "../content";
+import { BASE, QUOTE_CTA, nav } from "../content";
 import { cn } from "@/lib/utils";
 import { TvButtonLink } from "./TvButton";
 import { TvLogo } from "./TvLogo";
@@ -76,7 +76,7 @@ export function TvHeader() {
           </nav>
           <div className="flex items-center gap-3">
             <div className="hidden sm:block">
-              <TvButtonLink href={`${BASE}/appointment`}>Book Appointment</TvButtonLink>
+              <TvButtonLink href={`${BASE}/appointment`}>{QUOTE_CTA}</TvButtonLink>
             </div>
             <button
               ref={toggleRef}
@@ -126,7 +126,7 @@ export function TvHeader() {
             })}
           </ul>
           <TvButtonLink href={`${BASE}/appointment`} className="mt-8 w-full" onClick={() => setOpen(false)}>
-            Book Appointment
+            {QUOTE_CTA}
           </TvButtonLink>
         </nav>
       </div>

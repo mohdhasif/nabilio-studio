@@ -1,5 +1,9 @@
 import type { LucideIcon } from "lucide-react";
 import { BatteryCharging, CircleDot, Cog, Disc3, Droplets, ScanSearch, Snowflake, Wrench } from "lucide-react";
+import type { StaticImageData } from "next/image";
+import engineBayInspection from "./images/engine-bay-inspection.jpg";
+import tyrePressureCheck from "./images/tyre-pressure-check.jpg";
+import underBonnetServicing from "./images/under-bonnet-servicing.jpg";
 
 /**
  * Torquevale Motorworks — a FICTIONAL automotive workshop created by Nabilio Studio
@@ -23,6 +27,16 @@ export const brand = {
     { days: "Sunday & public holidays", time: "Closed" },
   ],
 };
+
+/**
+ * WhatsApp recipient for enquiries. Deliberately null in this demo: WhatsApp opens with the
+ * message prefilled but no recipient, so nothing can reach a real business by accident.
+ * A real client site would set its own workshop number here (digits only, e.g. "60123456789").
+ */
+export const ENQUIRY_WHATSAPP_NUMBER: string | null = null;
+
+/** Wording for the demo call to action — illustrative, not an offer by a real workshop. */
+export const QUOTE_CTA = "Get a Free Quotation";
 
 export const nav = [
   { label: "Home", href: BASE },
@@ -130,7 +144,7 @@ export const approach = [
   },
   {
     title: "Quote before work",
-    text: "You receive a clear quotation and approve it before any repair begins. No surprise charges.",
+    text: "You receive a clear quotation and approve it before any repair begins. Extra work is only done with your OK.",
   },
   {
     title: "Show and explain",
@@ -147,4 +161,64 @@ export const facilities = [
   "Computer diagnostic tools",
   "Wheel alignment equipment",
   "Air-conditioned waiting area",
+];
+
+/** "How it works": from enquiry to a confirmed slot and estimate. A process, not claims or achievements. */
+export const steps = [
+  { title: "Choose a service", text: "Pick servicing, diagnostics, brakes, tyres or another job — or “not sure”." },
+  {
+    title: "Describe the car",
+    text: "Make, model, year and mileage, plus any warning lights, noises or symptoms you have noticed.",
+  },
+  {
+    title: "Send via WhatsApp",
+    text: "Your enquiry opens in WhatsApp, fully written. Review it and press Send yourself.",
+  },
+  {
+    title: "Workshop confirms",
+    text: "The workshop replies with an estimate and an available slot — no back-and-forth questions.",
+  },
+];
+
+/** Common symptoms customers can tick, so the workshop gets a complete picture up front. */
+export const symptoms = [
+  "Due for routine service",
+  "Warning light on dashboard",
+  "Strange noise or vibration",
+  "Brakes squealing or soft pedal",
+  "Car pulling to one side",
+  "Aircond not cold",
+  "Hard to start / battery issue",
+  "Gear shifting feels rough",
+  "Leak or overheating",
+  "Other (describe in notes)",
+];
+
+export const timeSlots = ["Morning (8:30 am – 12:00 pm)", "Afternoon (2:00 pm – 5:00 pm)"];
+
+export type GalleryItem = { src: StaticImageData; alt: string; title: string; text: string };
+
+/**
+ * Types of work, shown with licensed stock photography (Pexels License).
+ * These are NOT Torquevale jobs, staff or premises. Sources: ./images/CREDITS.md
+ */
+export const gallery: GalleryItem[] = [
+  {
+    src: engineBayInspection,
+    alt: "Mechanic in a beanie using a torch to inspect the engine bay of a car with its bonnet open",
+    title: "Inspection & fault-finding",
+    text: "A close look under the bonnet to trace warning lights, noises and leaks before anything is quoted.",
+  },
+  {
+    src: underBonnetServicing,
+    alt: "Mechanic working on an engine with a screwdriver, with shelves of fluids in the workshop behind",
+    title: "Periodic servicing",
+    text: "Routine servicing: oil and filter changes, fluid top-ups and a multi-point check.",
+  },
+  {
+    src: tyrePressureCheck,
+    alt: "Close-up of a mechanic checking a car's tyre pressure with an air-line gauge",
+    title: "Tyres & wheels",
+    text: "Tyre pressure, tread and wheel checks, plus alignment when the car pulls to one side.",
+  },
 ];

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
-import { BASE, brand, nav } from "../content";
+import { BASE, QUOTE_CTA, brand, nav } from "../content";
 import { TvLogo } from "./TvLogo";
 
 export function TvFooter() {
@@ -14,7 +14,7 @@ export function TvFooter() {
         <nav aria-label="Torquevale footer">
           <h2 className="font-tv-display text-base font-semibold tracking-wider text-tv-text uppercase">Explore</h2>
           <ul className="mt-4 space-y-2.5">
-            {[...nav, { label: "Book Appointment", href: `${BASE}/appointment` }].map((item) => (
+            {[...nav, { label: QUOTE_CTA, href: `${BASE}/appointment` }].map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-tv-accent">
                   {item.label}

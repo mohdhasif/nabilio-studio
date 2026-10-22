@@ -1,6 +1,6 @@
-import { CalendarCheck } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
-import { BASE, brand } from "../content";
+import { BASE, QUOTE_CTA, brand } from "../content";
 import { TvButtonLink } from "./TvButton";
 
 export function AppointmentCta() {
@@ -14,16 +14,19 @@ export function AppointmentCta() {
               Car due for a service?
             </h2>
             <p className="mt-4 text-lg text-tv-muted">
-              Send an appointment enquiry and choose a preferred date. We confirm the slot before you come in.
+              Describe your car and the issue once. Your enquiry opens in WhatsApp, ready to send, and the workshop replies with an estimate and a slot.
             </p>
             <p className="mt-3 text-sm text-tv-muted">
               {brand.hours[0].days}: {brand.hours[0].time} · {brand.hours[1].days}: {brand.hours[1].time}
             </p>
           </div>
-          <TvButtonLink href={`${BASE}/appointment`} className="shrink-0">
-            <CalendarCheck className="size-5" aria-hidden />
-            Book Appointment
-          </TvButtonLink>
+          <div className="shrink-0">
+            <TvButtonLink href={`${BASE}/appointment`} className="w-full sm:w-auto">
+              <MessageCircle className="size-5 max-[359px]:hidden" aria-hidden />
+              {QUOTE_CTA}
+            </TvButtonLink>
+            <p className="mt-3 text-xs text-tv-muted">Demo call to action — Torquevale is fictional.</p>
+          </div>
         </div>
       </Reveal>
     </section>

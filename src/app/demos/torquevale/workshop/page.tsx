@@ -27,7 +27,7 @@ export default function TorquevaleWorkshop() {
             <SectionTitle
               id="tv-approach"
               kicker="Our approach"
-              title="Clear process, no surprises"
+              title="A clear, step-by-step process"
               description="Every car follows the same four steps, from the first inspection to handing back the keys."
             />
           </Reveal>
