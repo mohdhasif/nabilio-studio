@@ -16,7 +16,7 @@ function resolveSiteUrl(): string {
 }
 
 /** Defaults supplied by the owner; environment variables override them. */
-const DEFAULT_EMAIL = "mohdhasif24181@gmail.com";
+const DEFAULT_EMAIL = "nabiliostudio@gmail.com";
 const DEFAULT_WHATSAPP = "601110709875"; // 011-1070 9875
 
 const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || DEFAULT_EMAIL;

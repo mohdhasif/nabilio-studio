@@ -68,7 +68,7 @@ Environment Variables** for deployments.
 | Variable                      | Default                                                | Purpose                                               |
 | ----------------------------- | ------------------------------------------------------ | ----------------------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL`        | Vercel production domain, else `http://localhost:3000` | Canonical URLs, Open Graph, sitemap, robots           |
-| `NEXT_PUBLIC_CONTACT_EMAIL`   | `mohdhasif24181@gmail.com`                             | Email address used across the site                    |
+| `NEXT_PUBLIC_CONTACT_EMAIL`   | `nabiliostudio@gmail.com`                              | Email address used across the site                    |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | `601110709875`                                         | WhatsApp number, digits only, in international format |
 
 The default contact details live in `src/config/site.ts`. If a value is set to an empty string there, the site shows a
