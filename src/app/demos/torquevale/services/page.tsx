@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Check, Clock } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { AppointmentCta } from "@/demos/torquevale/components/AppointmentCta";
+import { IllustrativeNote } from "@/demos/torquevale/components/IllustrativeNote";
 import { PageIntro } from "@/demos/torquevale/components/PageIntro";
 import { TvButtonLink } from "@/demos/torquevale/components/TvButton";
 import { BASE, autoServices } from "@/demos/torquevale/content";
@@ -23,6 +24,9 @@ export default function TorquevaleServices() {
       />
 
       <section aria-label="Service list" className="mx-auto max-w-site px-5 py-16 sm:px-8 sm:py-24">
+        <IllustrativeNote className="mb-8">
+          Illustrative services and durations for a fictional demo — not verified offerings of any real business.
+        </IllustrativeNote>
         <ul className="grid gap-6 md:grid-cols-2">
           {autoServices.map((s, i) => (
             <Reveal as="li" key={s.slug} delay={(i % 2) * 0.06}>
@@ -55,7 +59,7 @@ export default function TorquevaleServices() {
                   variant="outline"
                   className="mt-8 self-start"
                 >
-                  Book this service
+                  Get a quote<span className="sr-only"> for {s.title}</span>
                 </TvButtonLink>
               </article>
             </Reveal>

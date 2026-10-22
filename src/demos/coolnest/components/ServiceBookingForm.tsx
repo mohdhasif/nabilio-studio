@@ -4,6 +4,15 @@ import { useId, useRef, useState } from "react";
 import { CircleAlert, Copy, ExternalLink, Info, MessageCircle } from "lucide-react";
 import { ENQUIRY_WHATSAPP_NUMBER, brand, services, symptoms, timeSlots, unitOptions } from "../content";
 import { cn } from "@/lib/utils";
+import {
+  formatEnquiryDate,
+  formatMyMobile,
+  normaliseMyMobile,
+  todayISO,
+  whatsappUrl as buildWhatsappUrl,
+} from "@/demos/shared/whatsapp-enquiry";
+
+const whatsappUrl = (message: string) => buildWhatsappUrl(ENQUIRY_WHATSAPP_NUMBER, message);
 
 type Fields = {
   name: string;
@@ -32,28 +41,6 @@ const empty: Fields = {
   notes: "",
 };
 
-function todayISO() {
-  const d = new Date();
-  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-  return d.toISOString().slice(0, 10);
-}
-
-/** Malaysian mobile numbers: 01X-XXX XXXX(X), optionally written with +60 / 60. */
-function normaliseMyMobile(input: string): string | null {
-  let digits = input.replace(/[\s-]/g, "");
-  if (!/^\+?\d+$/.test(digits)) return null;
-  digits = digits.replace(/^\+/, "");
-  if (digits.startsWith("60")) digits = "0" + digits.slice(2);
-  return /^01\d{8,9}$/.test(digits) ? digits : null;
-}
-
-function formatMyMobile(digits: string) {
-  // 0123456789 -> 012-345 6789, 01112345678 -> 011-1234 5678
-  return digits.length === 11
-    ? `${digits.slice(0, 3)}-${digits.slice(3, 7)} ${digits.slice(7)}`
-    : `${digits.slice(0, 3)}-${digits.slice(3, 6)} ${digits.slice(6)}`;
-}
-
 function validate(f: Fields): Errors {
   const e: Errors = {};
   const name = f.name.trim();
@@ -73,12 +60,7 @@ function validate(f: Fields): Errors {
 
 function composeMessage(f: Fields): string {
   const service = serviceOptions.find((o) => o.value === f.service)?.label ?? f.service;
-  const date = new Date(`${f.date}T00:00:00`).toLocaleDateString("en-MY", {
-    weekday: "short",
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  const date = formatEnquiryDate(f.date);
   const lines = [
     `Hi ${brand.shortName}, I'd like a quotation for aircond service.`,
     "",
@@ -99,12 +81,6 @@ function composeMessage(f: Fields): string {
     "(Demo enquiry from the CoolNest portfolio website by Nabilio Studio. CoolNest is a fictional business.)",
   );
   return lines.join("\n");
-}
-
-/** wa.me link; with no recipient configured WhatsApp asks the user to pick a chat. */
-function whatsappUrl(message: string) {
-  const base = ENQUIRY_WHATSAPP_NUMBER ? `https://wa.me/${ENQUIRY_WHATSAPP_NUMBER}` : "https://wa.me/";
-  return `${base}?text=${encodeURIComponent(message)}`;
 }
 
 const inputBase =

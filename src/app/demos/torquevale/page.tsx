@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CalendarCheck, ClipboardCheck, ShieldCheck, Timer } from "lucide-react";
+import { ArrowRight, ClipboardCheck, MessageCircle, ShieldCheck, Timer } from "lucide-react";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Reveal } from "@/components/motion/Reveal";
-import { BASE, approach, autoServices, facilities } from "@/demos/torquevale/content";
+import { BASE, QUOTE_CTA, approach, autoServices, facilities } from "@/demos/torquevale/content";
 import { AppointmentCta } from "@/demos/torquevale/components/AppointmentCta";
+import { HowItWorks } from "@/demos/torquevale/components/HowItWorks";
+import { IllustrativeNote } from "@/demos/torquevale/components/IllustrativeNote";
 import { RimGraphic } from "@/demos/torquevale/components/RimGraphic";
 import { SectionTitle } from "@/demos/torquevale/components/SectionTitle";
+import { WorkGallery } from "@/demos/torquevale/components/WorkGallery";
 import { TvButtonLink } from "@/demos/torquevale/components/TvButton";
 
 export const metadata: Metadata = {
   title: { absolute: "Torquevale Motorworks (Demo) — Automotive Service Centre" },
+  description:
+    "Car servicing, diagnostics and repairs — a fictional workshop website built by Nabilio Studio as a portfolio demonstration, with a WhatsApp quotation enquiry.",
   alternates: { canonical: BASE },
 };
 
@@ -50,18 +55,23 @@ export default function TorquevaleHome() {
             </FadeIn>
             <FadeIn delay={0.16}>
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-tv-muted">
-                Servicing, diagnostics and repairs for everyday cars — with a proper inspection first, a clear quotation
-                before any work, and updates until your car is ready.
+                Servicing, diagnostics and repairs for everyday cars. Describe your car and the issue once and get an
+                estimate over WhatsApp — with a proper inspection and a clear quotation before any work.
               </p>
             </FadeIn>
             <FadeIn delay={0.24} className="mt-10 flex flex-col gap-3 sm:flex-row">
               <TvButtonLink href={`${BASE}/appointment`}>
-                <CalendarCheck className="size-5" aria-hidden />
-                Book Appointment
+                <MessageCircle className="size-5 max-[359px]:hidden" aria-hidden />
+                {QUOTE_CTA}
               </TvButtonLink>
               <TvButtonLink href={`${BASE}/services`} variant="outline">
                 View Services
               </TvButtonLink>
+            </FadeIn>
+            <FadeIn delay={0.28}>
+              <p className="mt-3 text-xs text-tv-muted">
+                Demo call to action — Torquevale is fictional and does not offer real quotations.
+              </p>
             </FadeIn>
           </div>
 
@@ -88,6 +98,9 @@ export default function TorquevaleHome() {
               title="Workshop services"
               description="From routine servicing to fault-finding, every job follows the same careful process."
             />
+            <IllustrativeNote className="mt-6">
+              Illustrative services for a fictional demo — not verified offerings of any real business.
+            </IllustrativeNote>
           </Reveal>
           <Reveal delay={0.1} className="shrink-0">
             <TvButtonLink href={`${BASE}/services`} variant="outline">
@@ -117,6 +130,10 @@ export default function TorquevaleHome() {
           ))}
         </ul>
       </section>
+
+      <WorkGallery />
+
+      <HowItWorks />
 
       {/* Workshop intro */}
       <section aria-labelledby="tv-workshop" className="border-y border-tv-line bg-tv-panel">
